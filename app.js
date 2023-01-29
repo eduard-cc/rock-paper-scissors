@@ -78,6 +78,17 @@ function playRound(playerSelection, computerSelection)
     }
 }
 
-getPlayerSelection();
-getComputerSelection();
-console.log(playRound (playerSelection, computerSelection));
+// Play 5 rounds
+function game()
+{
+    alert("Play 5 rounds against the computer!")
+    for (let i = 1; i < 6; i++)
+    {
+        console.log(`Round ${i}`);
+        getPlayerSelection();
+        getComputerSelection();
+        console.log(playRound (playerSelection, computerSelection));
+    }
+}
+
+game();
