@@ -1,16 +1,19 @@
-// Play on click
+// Add click sound to all buttons
 
-const playButton = document.getElementById("play-button");
-playButton.addEventListener('click', play);
-
-function play() {
-    const audio = document.getElementById("click-sound");
-    audio.play();
-
-    const playContainer = document.getElementById("play-container");
-    playContainer.style.display = "none";
+const buttons = document.getElementsByTagName('button');
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', () => {
+        const audio = document.getElementById("click-sound");
+        audio.play();
+    });
 }
 
+// Play
+
+const playButton = document.getElementById('play-button').addEventListener('click', () => {
+    const playContainer = document.getElementById('play-container');
+    playContainer.style.display = 'none';
+});
 
 
 const choices = ["rock", "paper", "scissors"];

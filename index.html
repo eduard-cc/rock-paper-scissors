@@ -15,20 +15,33 @@
     </div>
     <div class="container">
         <div class="game-container">
-            <ul class="choices">
-                <li>
+            <div class="choices">
+                <button id="rock-button">
                     <img src="./icons/rock.svg" alt="rock">
-                    <p>rock_</p>
-                </li>
-                <li>
+                    <p>rock<span class="blink">_</span></p>
+                </button>
+                <button id="paper-button">
                     <img src="./icons/paper.svg" alt="paper">
-                    <p>paper_</p>
-                </li>
-                <li>
+                    <p>paper<span class="blink">_</span></p>
+                </button>
+                <button id="scissors-button">
                     <img src="./icons/scissors.svg" alt="scissors">
-                    <p>scissors_</p>
-                </li>
+                    <p>scissors<span class="blink">_</span></p>
+                </button>
             </div>
+        </div>
+        <div class="score">
+            <div>
+                <p>player_</p>
+                <p><span class="player-score">0</span></p>
+            </div>
+            <div>
+                <p>vs</p>
+            </div>
+            <div>
+                <p>computer_</p>
+                <p><span class="computer-score">0</span></p>
+            </div>            
         </div>
     </div>
 </body>
