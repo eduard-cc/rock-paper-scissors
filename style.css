@@ -17,7 +17,8 @@ body {
 /* play_ button */
 
 #play-button {
-    font-size: 28px;
+    background-color: rgb(242, 229, 229);
+    font-size: 2rem;
     padding: 10px 30px;
     border: none;
     box-shadow: 8px 9px;
@@ -42,4 +43,35 @@ body {
     50% {
       opacity: 0;
     }
+}
+
+.container .game-container {
+    display: flex;
+}
+.game-container img {
+    width: 50px;
+    margin: 0.5rem;
+}
+.game-container ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+}
+.game-container ul li {
+    background-color: rgb(242, 229, 229);
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    border: 1px solid;
+    box-shadow: 3px 4px;
+    padding: 1rem;
+}
+
+.game-container p {
+    margin: 0.5rem;
 }

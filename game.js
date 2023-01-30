@@ -1,11 +1,16 @@
-// Play click sound when play_ is clicked
+// Play on click
 
-function play() {
-    const audio = document.getElementById("click-sound")
-    audio.play();
-}
 const playButton = document.getElementById("play-button");
 playButton.addEventListener('click', play);
+
+function play() {
+    const audio = document.getElementById("click-sound");
+    audio.play();
+
+    const playContainer = document.getElementById("play-container");
+    playContainer.style.display = "none";
+}
+
 
 
 const choices = ["rock", "paper", "scissors"];

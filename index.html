@@ -4,14 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>rock paper scissors _</title>
     <script src="./game.js" defer></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <audio id="click-sound" src="./audio/click.mp3"></audio>
-    <div class="container" id="start">
+    <div class="container" id="play-container">
         <button id="play-button">play<span class="blink">_</span></button>
+    </div>
+    <div class="container">
+        <div class="game-container">
+            <ul class="choices">
+                <li>
+                    <img src="./icons/rock.svg" alt="rock">
+                    <p>rock_</p>
+                </li>
+                <li>
+                    <img src="./icons/paper.svg" alt="paper">
+                    <p>paper_</p>
+                </li>
+                <li>
+                    <img src="./icons/scissors.svg" alt="scissors">
+                    <p>scissors_</p>
+                </li>
+            </div>
+        </div>
     </div>
 </body>
 </html>
