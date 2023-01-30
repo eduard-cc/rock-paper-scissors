@@ -1,36 +1,48 @@
+// Play click sound when play_ is clicked
+
+function play() {
+    const audio = document.getElementById("click-sound")
+    audio.play();
+}
+const playButton = document.getElementById("play-button");
+playButton.addEventListener('click', play);
+
+
 const choices = ["rock", "paper", "scissors"];
 
 let computerSelection;
 let playerSelection;
 
-function getComputerSelection()
+function getComputerSelection() 
 {
     computerSelection = choices[~~(Math.random() * choices.length)];
     console.log(`Computer chose ${computerSelection}`);
     return playerSelection;
 }
 
-function getPlayerSelection()
+function getPlayerSelection() 
 {
     let input = prompt("Choose: ").toLowerCase();
-    if (choices.includes(input))
+
+    if (choices.includes(input)) 
     {
         playerSelection = input;
         return playerSelection;
     }
-    else
+    else 
     {
         alert("Choose rock, paper or scissors!");
         getPlayerSelection();
     }
 }
 
-function playRound(playerSelection, computerSelection)
+function playRound(playerSelection, computerSelection) 
 {
     let result;
-    if (playerSelection == "rock")
+    
+    if (playerSelection === "rock") 
     {
-        switch (computerSelection)
+        switch (computerSelection) 
         {
             case "rock":
                 result = "It's a tie!";
@@ -44,9 +56,9 @@ function playRound(playerSelection, computerSelection)
         }
         return result;
     }
-    else if (playerSelection == "paper")
+    else if (playerSelection === "paper") 
     {
-        switch (computerSelection)
+        switch (computerSelection) 
         {
             case "rock":
                 result = "You win!";
@@ -60,9 +72,9 @@ function playRound(playerSelection, computerSelection)
         }
         return result;
     }
-    else if (playerSelection == "scissors")
+    else if (playerSelection === "scissors") 
     {
-        switch (computerSelection)
+        switch (computerSelection) 
         {
             case "rock":
                 result = "You lose!";
@@ -78,11 +90,11 @@ function playRound(playerSelection, computerSelection)
     }
 }
 
-// Play 5 rounds
-function game()
+function game() 
 {
     alert("Play 5 rounds against the computer!")
-    for (let i = 1; i < 6; i++)
+
+    for (let i = 1; i < 6; i++) 
     {
         console.log(`Round ${i}`);
         getPlayerSelection();
@@ -90,5 +102,3 @@ function game()
         console.log(playRound (playerSelection, computerSelection));
     }
 }
-
-game();

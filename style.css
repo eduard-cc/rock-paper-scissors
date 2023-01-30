@@ -1,0 +1,45 @@
+body {
+    background-color: rgb(43, 58, 85);
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* play_ button */
+
+#play-button {
+    font-size: 28px;
+    padding: 10px 30px;
+    border: none;
+    box-shadow: 8px 9px;
+}
+#play-button:hover {
+    background-color: rgb(232, 196, 196);
+    box-shadow: 3px 3px 0px 1px;
+    border-bottom: 2px solid;
+    transform: translate(-2%, 10%);
+    cursor: pointer;
+}
+
+#play-button:active {
+    box-shadow: none;
+    transform: translate(-4%, 20%);
+}
+
+.blink {
+    animation: blink 0.8s linear infinite;
+}
+@keyframes blink {
+    50% {
+      opacity: 0;
+    }
+}
