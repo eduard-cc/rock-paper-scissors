@@ -5,26 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rock paper scissors _</title>
-    <script src="./game.js" defer></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <audio id="click-sound" src="./audio/click.mp3"></audio>
     <div class="container" id="play-container">
+        <div id="typewriter-effect">
+            <h1>rock paper scissors<span class="blink">_</span></h1>
+        </div>
         <button id="play-button">play<span class="blink">_</span></button>
     </div>
     <div class="container">
         <div class="game-container">
             <div class="choices">
-                <button id="rock-button">
+                <button class="choice-button" id="rock">
                     <img src="./icons/rock.svg" alt="rock">
                     <p>rock<span class="blink">_</span></p>
                 </button>
-                <button id="paper-button">
+                <button class="choice-button" id="paper">
                     <img src="./icons/paper.svg" alt="paper">
                     <p>paper<span class="blink">_</span></p>
                 </button>
-                <button id="scissors-button">
+                <button class="choice-button" id="scissors">
                     <img src="./icons/scissors.svg" alt="scissors">
                     <p>scissors<span class="blink">_</span></p>
                 </button>
@@ -32,17 +34,34 @@
         </div>
         <div class="score">
             <div>
-                <p>player_</p>
+                <p>player</p>
                 <p><span class="player-score">0</span></p>
             </div>
-            <div>
+            <div id="vs">
                 <p>vs</p>
             </div>
             <div>
-                <p>computer_</p>
+                <p>computer</p>
                 <p><span class="computer-score">0</span></p>
             </div>            
         </div>
+        <div class="game-container">
+            <div class="choices">
+                <button class="computer-choices">
+                    <img src="./icons/rock.svg" alt="rock">
+                    <p>rock<span class="blink">_</span></p>
+                </button>
+                <button class="computer-choices">
+                    <img src="./icons/paper.svg" alt="paper">
+                    <p>paper<span class="blink">_</span></p>
+                </button>
+                <button class="computer-choices">
+                    <img src="./icons/scissors.svg" alt="scissors">
+                    <p>scissors<span class="blink">_</span></p>
+                </button>
+            </div>
+        </div>
     </div>
+    <script src="./game.js" defer></script>
 </body>
 </html>
