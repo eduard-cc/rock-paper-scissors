@@ -21,9 +21,9 @@ const choices = {
     scissors: { lose: 'rock', win: 'paper' }
 }
 
-const playButton = document.getElementById('play-button').addEventListener('click', () => {
-    const playContainer = document.getElementById('play-container');
-    playContainer.style.display = 'none';
+document.getElementById('play-button').addEventListener('click', () => {
+    document.getElementById('start-container').style.display = 'none';
+    document.getElementById('game-container').style.display = 'flex';
 });
 
 // Get player choice
@@ -32,31 +32,46 @@ const choiceButtons = document.querySelectorAll('.choice-button');
 choiceButtons.forEach(button => button.addEventListener('click', () => {
     playerSelection = button.id;
     getComputerSelection();
-    console.log(`Player chose ${playerSelection}`);
-    playRound();
+    roundLog(playRound());
 }));
 
 // Get computer choice
 function getComputerSelection() {
     const keys = Object.keys(choices);
     computerSelection = keys[Math.floor(Math.random() * keys.length)];
-    console.log(`Computer chose ${computerSelection}`);
 }
 
+
 function playRound() {
+    let result;
     if (choices[playerSelection].win === computerSelection) {
-        console.log('Player won!');
         playerScore++;
-        console.log(`Player score: ${playerScore}`);
-        console.log(`Computer score: ${computerScore}`);
+        result = `${playerSelection} WIN ${computerSelection}`
     }
     else if (choices[playerSelection].lose === computerSelection) {
-        console.log('Computer won!');
         computerScore++;
-        console.log(`Player score: ${playerScore}`);
-        console.log(`Computer score: ${computerScore}`);
+        result = `${playerSelection} LOSE ${computerSelection}`
     }
     else {
-        console.log(`It's a tie!`)
+        result = `${playerSelection} TIE ${computerSelection}`
     }
+    document.getElementById('computer-score').textContent = computerScore;
+    document.getElementById('player-score').textContent = playerScore;
+    return result;
+}
+
+function game() {
+    if (computerScore == 5) {
+        console.log(`COMPUTER 5`);
+    }
+    else if (playerScore == 5) {
+        console.log(`PLAYER 5`)
+    }
+}
+
+function roundLog(result) {
+    const li = document.createElement('li');
+    li.textContent = result;
+    const ul = document.getElementById('results-container');
+    ul.insertAdjacentElement('afterbegin', li);
 }
