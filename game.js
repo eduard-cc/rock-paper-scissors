@@ -8,7 +8,7 @@ for (let i = 0; i < buttons.length; i++) {
     });
 }
 
-// Play
+
 let computerSelection;
 let playerSelection;
 
@@ -32,7 +32,7 @@ const choiceButtons = document.querySelectorAll('.choice-button');
 choiceButtons.forEach(button => button.addEventListener('click', () => {
     playerSelection = button.id;
     getComputerSelection();
-    roundLog(playRound());
+    playRound();
 }));
 
 // Get computer choice
@@ -57,21 +57,30 @@ function playRound() {
     }
     document.getElementById('computer-score').textContent = computerScore;
     document.getElementById('player-score').textContent = playerScore;
-    return result;
+    document.getElementById('round-outcome').textContent = result;
+
+    checkWinner();
 }
 
-function game() {
+function checkWinner() {
     if (computerScore == 5) {
-        console.log(`COMPUTER 5`);
+        resetTypewriterAnimation("you lose");
     }
     else if (playerScore == 5) {
-        console.log(`PLAYER 5`)
+        resetTypewriterAnimation("you win");
     }
 }
 
-function roundLog(result) {
-    const li = document.createElement('li');
-    li.textContent = result;
-    const ul = document.getElementById('results-container');
-    ul.insertAdjacentElement('afterbegin', li);
+// Replay typewriter animation when game ends by replacing title
+function resetTypewriterAnimation(gameOutcome) {
+    const div = document.getElementById('title');
+    const h1 = document.createElement('h1');
+    const span = document.createElement('span');
+    span.appendChild(document.createTextNode('_'));
+    span.classList.add('blink');
+    h1.appendChild(document.createTextNode(gameOutcome));
+    h1.appendChild(span);
+
+    div.innerHTML = '';
+    div.appendChild(h1);
 }

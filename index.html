@@ -10,7 +10,7 @@
 <body>
     <audio id="click-sound" src="./audio/click.mp3"></audio>
     <div class="container" id="start-container">
-        <div id="typewriter-effect">
+        <div class="typewriter-effect">
             <h1>rock paper scissors<span class="blink">_</span></h1>
         </div>
         <button id="play-button">play<span class="blink">_</span></button>
@@ -33,8 +33,8 @@
             </div>
         </div>
         <div class="score-container">
-            <div id="typewriter-effect">
-                <h1>first to 5 wins!<span class="blink">_</span></h1>
+            <div id="title" class="typewriter-effect">
+                <h1>first to 5 wins<span class="blink">_</span></h1>
             </div>
             <div class="score">
                 <div>
@@ -49,7 +49,7 @@
                     <p id="computer-score">0</p>
                 </div>            
             </div>
-            <ul id="results-container"></ul>
+            <div id="round-outcome">0</div>
         </div>
     </div>
     <script src="./game.js" defer></script>
