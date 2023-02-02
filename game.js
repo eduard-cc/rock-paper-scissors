@@ -24,11 +24,21 @@ function playTypewriterAnimation(element, text, delay = 50) {
 }
 
 // Create span element and append it to text
+
 function appendUnderscore(underscoreElement) {
     const span = document.createElement('span');
     span.appendChild(document.createTextNode('_'));
     span.classList.add('blink');
     underscoreElement.appendChild(span);
+}
+
+// Reset css animation using reflow
+
+function resetAnimation() {
+    const roundLog = document.getElementById('round-log');
+    roundLog.style.animation = 'none';
+    roundLog.offsetHeight;
+    roundLog.style.animation = null;
 }
 
 let computerSelection;
@@ -48,6 +58,8 @@ const choices = {
     scissors: { lose: 'rock', win: 'paper', icon: scissorsSvg }
 }
 
+// Start game
+
 document.getElementById('play-button').addEventListener('click', () => {
     document.getElementById('start-container').style.display = 'none';
     document.getElementById('game-container').style.display = 'flex';
@@ -57,6 +69,7 @@ document.getElementById('play-button').addEventListener('click', () => {
 });
 
 // Get player choice
+
 const choiceButtons = document.querySelectorAll('.choice-button');
 
 choiceButtons.forEach(button => button.addEventListener('click', () => {
@@ -65,12 +78,10 @@ choiceButtons.forEach(button => button.addEventListener('click', () => {
     playRound();
 }));
 
-// Get computer choice
 function getComputerSelection() {
     const keys = Object.keys(choices);
     computerSelection = keys[Math.floor(Math.random() * keys.length)];
 }
-
 
 function playRound() {
     let result;
@@ -89,6 +100,7 @@ function playRound() {
     document.getElementById('computer-score').textContent = computerScore;
     document.getElementById('player-score').textContent = playerScore;
     document.getElementById('round-log').innerHTML = result;
+    
     resetAnimation();
     checkWinner();
 }
@@ -102,26 +114,7 @@ function checkWinner() {
     }
 }
 
-function resetAnimation() {
-    var el = document.getElementById('round-log');
-    el.style.animation = 'none';
-    el.offsetHeight;
-    el.style.animation = null;
-}
-
-document.getElementById('play-again-button').addEventListener('click', () => {
-    document.getElementById('play-again-button').style.display = 'none';
-    computerScore = 0;
-    playerScore = 0;
-    roundNumber = 0;
-    const title = document.getElementById('result');
-    title.innerHTML = '';
-    playTypewriterAnimation(title, 'first to 5 wins');
-    document.getElementsByClassName('choice-container')[0].style.display = 'block';
-    document.getElementById('round-log').textContent = '';
-    document.getElementById('computer-score').textContent = 0;
-    document.getElementById('player-score').textContent = 0;
-});
+// End game
 
 function endGame(outcome) {
     const result = document.getElementById('result');
@@ -129,5 +122,19 @@ function endGame(outcome) {
     playTypewriterAnimation(result, outcome);
     document.getElementsByClassName('choice-container')[0].style.display = 'none';
     document.getElementById('play-again-button').style.display = 'flex';
-    document.getElementsByClassName('score').style
 }
+
+// Restart game
+
+document.getElementById('play-again-button').addEventListener('click', () => {
+    document.getElementById('play-again-button').style.display = 'none';
+    computerScore = 0;
+    playerScore = 0;
+    roundNumber = 0;
+    document.getElementById('result').innerHTML = '';
+    playTypewriterAnimation(title, 'first to 5 wins');
+    document.getElementsByClassName('choice-container')[0].style.display = 'block';
+    document.getElementById('computer-score').textContent = 0;
+    document.getElementById('player-score').textContent = 0;
+    document.getElementById('round-log').innerHTML = '';
+});

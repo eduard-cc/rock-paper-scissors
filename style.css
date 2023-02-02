@@ -3,9 +3,7 @@ body {
     flex-direction: column;
     background-color: rgb(43, 58, 85);
     height: 100vh;
-    padding: 0;
     margin: 0;
-    height: 100%;
     overflow: hidden;
 }
 
@@ -27,7 +25,6 @@ body {
 
 #game-container {
     display: none;
-    flex-direction: column;
 }
 
 .main-container {
@@ -116,11 +113,6 @@ button:active {
     color: rgb(206, 119, 119);
 }
 
-#round-log {
-    color: rgb(242, 229, 229);
-    font-size: 2rem;
-}
-
 #play-again-button {
     display: none;
     margin-top: 2rem;
@@ -128,7 +120,6 @@ button:active {
 
 .footer {
     position: fixed;
-    left: 0;
     bottom: 0;
     width: 100%;
     color: rgb(242, 229, 229);
@@ -143,12 +134,18 @@ button:active {
     overflow: hidden;
     white-space: nowrap;
     animation: typing 6s steps(120, end) forwards;
-    font-size: 1.6rem;
+    font-size: 2rem;
     width: 0;
     position: absolute;
+    color: rgb(242, 229, 229);
 }
 
 @keyframes typing {
     from { width: 0 }
     to { width: 100% }
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
 }
