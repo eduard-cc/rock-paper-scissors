@@ -1,1 +1,1 @@
-# rock-paper-scissors
+https://eduard-cc.github.io/rock-paper-scissors/
