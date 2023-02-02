@@ -1,3 +1,6 @@
+const title = document.getElementById('title');
+playTypewriterAnimation(title, 'rock paper scissors');
+
 // Add click sound to all buttons
 
 const buttons = document.getElementsByTagName('button');
@@ -8,25 +11,24 @@ for (let i = 0; i < buttons.length; i++) {
     });
 }
 
-function typeWriter(element, text, delay = 50) {
+function playTypewriterAnimation(element, text, delay = 50) {
     for (let i = 0; i < text.length; i++) {
         setTimeout(() => {
             element.innerHTML += text[i];
+            // Add blinking underscore when animation finished
             if (i === text.length - 1) {
-                addUnderscore();
+                appendUnderscore(element);
             }
         }, delay * i);
     }
 }
 
-const title = document.getElementById('title');
-typeWriter(title, 'rock paper scissors');    
-
-
-function addUnderscore() {
+// Create span element and append it to text
+function appendUnderscore(underscoreElement) {
     const span = document.createElement('span');
+    span.appendChild(document.createTextNode('_'));
     span.classList.add('blink');
-    document.getElementById('title').appendChild(span);
+    underscoreElement.appendChild(span);
 }
 
 let computerSelection;
@@ -35,15 +37,22 @@ let playerSelection;
 let computerScore = 0;
 let playerScore = 0;
 
+const rockSvg = document.getElementById('svg-rock-log').outerHTML;
+const paperSvg = document.getElementById('svg-paper-log').outerHTML;
+const scissorsSvg = document.getElementById('svg-scissors-log').outerHTML;
+
 const choices = {
-    rock: { lose: 'paper', win: 'scissors' },
-    paper: { lose: 'scissors', win: 'rock' },
-    scissors: { lose: 'rock', win: 'paper' }
+    rock: { lose: 'paper', win: 'scissors', icon: rockSvg },
+    paper: { lose: 'scissors', win: 'rock', icon: paperSvg },
+    scissors: { lose: 'rock', win: 'paper', icon: scissorsSvg }
 }
 
 document.getElementById('play-button').addEventListener('click', () => {
     document.getElementById('start-container').style.display = 'none';
     document.getElementById('game-container').style.display = 'flex';
+
+    const title = document.getElementById('result');
+    playTypewriterAnimation(title, 'first to 5 wins');
 });
 
 // Get player choice
@@ -66,27 +75,39 @@ function playRound() {
     let result;
     if (choices[playerSelection].win === computerSelection) {
         playerScore++;
-        result = `${playerSelection} WIN ${computerSelection}`
+        result = `round 1: ${choices[playerSelection].icon} > ${choices[computerSelection].icon}`
     }
     else if (choices[playerSelection].lose === computerSelection) {
         computerScore++;
-        result = `${playerSelection} LOSE ${computerSelection}`
+        result = `round 1: ${choices[playerSelection].icon} < ${choices[computerSelection].icon}`
     }
     else {
-        result = `${playerSelection} TIE ${computerSelection}`
+        result = `round 1: ${choices[playerSelection].icon} = ${choices[computerSelection].icon}`
     }
     document.getElementById('computer-score').textContent = computerScore;
     document.getElementById('player-score').textContent = playerScore;
-    document.getElementById('round-outcome').textContent = result;
-
+    document.getElementById('round-log').innerHTML = result;
+    resetAnimation();
     checkWinner();
 }
 
 function checkWinner() {
+    const result = document.getElementById('result');
     if (computerScore == 5) {
-        resetTypewriterAnimation("you lose");
+        result.innerHTML = '';
+        playTypewriterAnimation(result, 'you lose');
+        document.getElementById('play-again-button').style.display = 'flex';
     }
     else if (playerScore == 5) {
-        resetTypewriterAnimation("you win");
+        result.innerHTML = '';
+        playTypewriterAnimation(result, 'you win');
+        document.getElementById('play-again-button').style.display = 'flex';
     }
+}
+
+function resetAnimation() {
+    var el = document.getElementById('round-log');
+    el.style.animation = 'none';
+    el.offsetHeight;
+    el.style.animation = null;
 }

@@ -11,30 +11,14 @@
     <audio id="click-sound" src="./audio/click.mp3"></audio>
     <div class="container" id="start-container">
         <div>
-            <h1 id="title"></p>
+            <h1 id="title"></h1>
         </div>
         <button id="play-button">play<span class="blink">_</span></button>
     </div>
     <div class="container" id="game-container">
-        <div class="choice-container">
-            <div class="choices">
-                <button class="choice-button" id="rock">
-                    <img src="./icons/rock.svg" alt="rock">
-                    <p>rock<span class="blink">_</span></p>
-                </button>
-                <button class="choice-button" id="paper">
-                    <img src="./icons/paper.svg" alt="paper">
-                    <p>paper<span class="blink">_</span></p>
-                </button>
-                <button class="choice-button" id="scissors">
-                    <img src="./icons/scissors.svg" alt="scissors">
-                    <p>scissors<span class="blink">_</span></p>
-                </button>
-            </div>
-        </div>
-        <div class="score-container">
-            <div id="title">
-                <h1>first to 5 wins<span class="blink">_</span></h1>
+        <div class="main-container">
+            <div>
+                <h1 id="result"></h1>
             </div>
             <div class="score">
                 <div>
@@ -49,8 +33,35 @@
                     <p id="computer-score">0</p>
                 </div>            
             </div>
-            <div id="round-outcome">0</div>
+            <div class="choice-container">
+                <div class="choices">
+                    <button class="choice-button" id="rock">
+                        <img src="./icons/rock.svg">
+                        <p>rock<span class="blink">_</span></p>
+                    </button>
+                    <button class="choice-button" id="paper">
+                        <img src="./icons/paper.svg">
+                        <p>paper<span class="blink">_</span></p>
+                    </button>
+                    <button class="choice-button" id="scissors">
+                        <img src="./icons/scissors.svg">
+                        <p>scissors<span class="blink">_</span></p>
+                    </button>
+                </div>
+            </div>
+            <div>
+                <h1 id="round-log"></h1>
+            </div>
+            <div>
+                <button id="play-again-button">play again<span class="blink">_</span></button>
+            </div>
         </div>
+    </div>
+    <div class="footer">
+        <img id="svg-rock-log" src="./icons/rock-log.svg">
+        <img id="svg-paper-log" src="./icons/paper-log.svg">
+        <img id="svg-scissors-log" src="./icons/scissors-log.svg">
+        <p id="source">by eduard-cc</p>
     </div>
     <script src="./game.js" defer></script>
 </body>
