@@ -8,6 +8,26 @@ for (let i = 0; i < buttons.length; i++) {
     });
 }
 
+function typeWriter(element, text, delay = 50) {
+    for (let i = 0; i < text.length; i++) {
+        setTimeout(() => {
+            element.innerHTML += text[i];
+            if (i === text.length - 1) {
+                addUnderscore();
+            }
+        }, delay * i);
+    }
+}
+
+const title = document.getElementById('title');
+typeWriter(title, 'rock paper scissors');    
+
+
+function addUnderscore() {
+    const span = document.createElement('span');
+    span.classList.add('blink');
+    document.getElementById('title').appendChild(span);
+}
 
 let computerSelection;
 let playerSelection;
@@ -69,18 +89,4 @@ function checkWinner() {
     else if (playerScore == 5) {
         resetTypewriterAnimation("you win");
     }
-}
-
-// Replay typewriter animation when game ends by replacing title
-function resetTypewriterAnimation(gameOutcome) {
-    const div = document.getElementById('title');
-    const h1 = document.createElement('h1');
-    const span = document.createElement('span');
-    span.appendChild(document.createTextNode('_'));
-    span.classList.add('blink');
-    h1.appendChild(document.createTextNode(gameOutcome));
-    h1.appendChild(span);
-
-    div.innerHTML = '';
-    div.appendChild(h1);
 }

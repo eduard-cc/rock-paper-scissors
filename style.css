@@ -16,26 +16,14 @@ body {
 
 #start-container {
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 #game-container {
     display: none;
 }
-
-.typewriter-effect h1{
-    color: rgb(242, 229, 229);
-    overflow: hidden;
-    white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: .10em;
-    animation: typing 1s steps(25, end);
-}
-
-/* The typing effect */
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+#title span::after {
+    content: "_";
 }
 
 button {
