@@ -33,7 +33,7 @@ body {
 .main-container {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 button {
@@ -95,6 +95,8 @@ button:active {
     border: 1px solid;
     background-color: rgb(242, 229, 229);
     box-shadow: 3px 4px;
+    position: relative;
+    min-width: 37rem;
 }
 .score div {
     display: flex;
@@ -121,6 +123,7 @@ button:active {
 
 #play-again-button {
     display: none;
+    margin-top: 2rem;
 }
 
 .footer {
@@ -139,9 +142,10 @@ button:active {
 #round-log{
     overflow: hidden;
     white-space: nowrap;
-    animation: typing 1s steps(20, end) forwards;
+    animation: typing 6s steps(120, end) forwards;
     font-size: 1.6rem;
     width: 0;
+    position: absolute;
 }
 
 @keyframes typing {

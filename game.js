@@ -36,6 +36,7 @@ let playerSelection;
 
 let computerScore = 0;
 let playerScore = 0;
+let roundNumber = 0;
 
 const rockSvg = document.getElementById('svg-rock-log').outerHTML;
 const paperSvg = document.getElementById('svg-paper-log').outerHTML;
@@ -73,16 +74,17 @@ function getComputerSelection() {
 
 function playRound() {
     let result;
+    roundNumber++;
     if (choices[playerSelection].win === computerSelection) {
         playerScore++;
-        result = `round 1: ${choices[playerSelection].icon} > ${choices[computerSelection].icon}`
+        result = `round ${roundNumber}: ${choices[playerSelection].icon} > ${choices[computerSelection].icon}`;
     }
     else if (choices[playerSelection].lose === computerSelection) {
         computerScore++;
-        result = `round 1: ${choices[playerSelection].icon} < ${choices[computerSelection].icon}`
+        result = `round ${roundNumber}: ${choices[playerSelection].icon} < ${choices[computerSelection].icon}`;
     }
     else {
-        result = `round 1: ${choices[playerSelection].icon} = ${choices[computerSelection].icon}`
+        result = `round ${roundNumber}: ${choices[playerSelection].icon} = ${choices[computerSelection].icon}`;
     }
     document.getElementById('computer-score').textContent = computerScore;
     document.getElementById('player-score').textContent = playerScore;
@@ -92,16 +94,11 @@ function playRound() {
 }
 
 function checkWinner() {
-    const result = document.getElementById('result');
     if (computerScore == 5) {
-        result.innerHTML = '';
-        playTypewriterAnimation(result, 'you lose');
-        document.getElementById('play-again-button').style.display = 'flex';
+        endGame('you lose');
     }
     else if (playerScore == 5) {
-        result.innerHTML = '';
-        playTypewriterAnimation(result, 'you win');
-        document.getElementById('play-again-button').style.display = 'flex';
+        endGame('you win!');
     }
 }
 
@@ -110,4 +107,27 @@ function resetAnimation() {
     el.style.animation = 'none';
     el.offsetHeight;
     el.style.animation = null;
+}
+
+document.getElementById('play-again-button').addEventListener('click', () => {
+    document.getElementById('play-again-button').style.display = 'none';
+    computerScore = 0;
+    playerScore = 0;
+    roundNumber = 0;
+    const title = document.getElementById('result');
+    title.innerHTML = '';
+    playTypewriterAnimation(title, 'first to 5 wins');
+    document.getElementsByClassName('choice-container')[0].style.display = 'block';
+    document.getElementById('round-log').textContent = '';
+    document.getElementById('computer-score').textContent = 0;
+    document.getElementById('player-score').textContent = 0;
+});
+
+function endGame(outcome) {
+    const result = document.getElementById('result');
+    result.innerHTML = '';
+    playTypewriterAnimation(result, outcome);
+    document.getElementsByClassName('choice-container')[0].style.display = 'none';
+    document.getElementById('play-again-button').style.display = 'flex';
+    document.getElementsByClassName('score').style
 }
