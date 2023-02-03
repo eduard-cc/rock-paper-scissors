@@ -16,6 +16,7 @@ body {
     align-items: center;
     height: 100vh;
 }
+
 .container h1 {
     color: rgb(242, 229, 229);
     margin: 0;
@@ -60,9 +61,10 @@ button:active {
 .blink {
     animation: blink 0.8s linear infinite;
 }
+
 @keyframes blink {
     50% {
-      opacity: 0;
+        opacity: 0;
     }
 }
 
@@ -98,6 +100,7 @@ button:active {
     position: relative;
     min-width: 37rem;
 }
+
 .score div {
     display: flex;
     flex-direction: column;
@@ -112,6 +115,7 @@ button:active {
     padding: 0.3rem;
     font-size: 2rem;
 }
+
 .score #player-score, #computer-score {
     color: rgb(206, 119, 119);
 }
@@ -128,24 +132,30 @@ button:active {
     color: rgb(242, 229, 229);
     text-align: center;
 }
+
 .footer p {
     margin: 0rem;
     margin-bottom: 0.5rem;
 }
 
-#round-log{
+#round-log {
     overflow: hidden;
     white-space: nowrap;
-    animation: typing 5s steps(100, end) forwards;
     font-size: 2rem;
     width: 0;
     position: absolute;
     color: rgb(242, 229, 229);
+    animation: typing 5s steps(100, end) forwards;
 }
 
 @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
 }
 
 a {
@@ -153,14 +163,18 @@ a {
     text-decoration: inherit;
 }
 
-
 #fade-lose {
     animation: backgroundFadeLose 1s linear forwards;
 }
 
 @keyframes backgroundFadeLose {
-    from {background-color: rgb(43, 58, 85);}
-    to {background-color: rgb(57, 62, 70);}
+    from {
+        background-color: rgb(43, 58, 85);
+    }
+
+    to {
+        background-color: rgb(57, 62, 70);
+    }
 }
 
 #fade-win {
@@ -168,6 +182,11 @@ a {
 }
 
 @keyframes backgroundFadeWin {
-    from {background-color: rgb(43, 58, 85);}
-    to {background-color: rgb(64, 84, 122);}
+    from {
+        background-color: rgb(43, 58, 85);
+    }
+
+    to {
+        background-color: rgb(64, 84, 122);
+    }
 }

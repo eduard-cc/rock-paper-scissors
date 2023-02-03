@@ -2,6 +2,7 @@ const title = document.getElementById('title');
 playTypewriterAnimation(title, 'rock paper scissors');
 
 const result = document.getElementById('result');
+
 // Add click sound to all buttons
 
 const buttons = document.getElementsByTagName('button');
@@ -11,7 +12,6 @@ for (let i = 0; i < buttons.length; i++) {
         audio.play();
     });
 }
-
 
 function playTypewriterAnimation(element, text, delay = 50) {
     for (let i = 0; i < text.length; i++) {
@@ -101,7 +101,7 @@ function playRound() {
     document.getElementById('computer-score').textContent = computerScore;
     document.getElementById('player-score').textContent = playerScore;
     document.getElementById('round-log').innerHTML = roundLog;
-    
+
     resetAnimation();
     checkWinner();
 }
@@ -109,13 +109,13 @@ function playRound() {
 function checkWinner() {
     if (computerScore == 5) {
         document.getElementById('lose-sound').play();
-        document.body.setAttribute('id','fade-lose');
+        document.body.setAttribute('id', 'fade-lose');
         endGame('you lose');
     }
     else if (playerScore == 5) {
-        endGame('you win!');
         document.getElementById('win-sound').play();
-        document.body.setAttribute('id','fade-win');
+        document.body.setAttribute('id', 'fade-win');
+        endGame('you win!');
     }
 }
 
