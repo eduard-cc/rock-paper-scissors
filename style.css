@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 body {
+    font-family: 'Roboto Mono', monospace;
     display: flex;
     flex-direction: column;
     background-color: rgb(43, 58, 85);
@@ -100,8 +103,8 @@ button:active {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 8rem;
-    height: 8rem;
+    width: 10rem;
+    height: 10rem;
 }
 
 .score p {
@@ -166,5 +169,5 @@ a {
 
 @keyframes backgroundFadeWin {
     from {background-color: rgb(43, 58, 85);}
-    to {background-color: rgb(70, 98, 86);}
+    to {background-color: rgb(64, 84, 122);}
 }
