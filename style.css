@@ -133,7 +133,7 @@ button:active {
 #round-log{
     overflow: hidden;
     white-space: nowrap;
-    animation: typing 6s steps(120, end) forwards;
+    animation: typing 5s steps(100, end) forwards;
     font-size: 2rem;
     width: 0;
     position: absolute;
@@ -148,4 +148,23 @@ button:active {
 a {
     color: inherit;
     text-decoration: inherit;
+}
+
+
+#fade-lose {
+    animation: backgroundFadeLose 1s linear forwards;
+}
+
+@keyframes backgroundFadeLose {
+    from {background-color: rgb(43, 58, 85);}
+    to {background-color: rgb(57, 62, 70);}
+}
+
+#fade-win {
+    animation: backgroundFadeWin 1s linear forwards;
+}
+
+@keyframes backgroundFadeWin {
+    from {background-color: rgb(43, 58, 85);}
+    to {background-color: rgb(70, 98, 86);}
 }
